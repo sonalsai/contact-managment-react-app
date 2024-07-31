@@ -1,0 +1,25 @@
+.addContactIcon{
+    position: fixed;
+    bottom: 36px;
+    right: 40px;
+    width: 36px;
+    background-color: #0004ff;
+    padding: 12px;
+    border-radius: 40px;
+    box-shadow: inset #00028a 0px 0px 60px -12px;
+    cursor: pointer;
+}
+
+.bodyContainer{
+    max-width: 1560px;
+    display: flex;
+    gap: 32px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}

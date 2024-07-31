@@ -1,0 +1,119 @@
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 520px;
+    background-color: #dff5ff;
+    padding: 32px 48px;
+    border-radius: 16px;
+    position: absolute;
+    top: 120px;
+    right: 60px;
+    gap: 28px;
+
+    .formHead {
+        margin: 0 auto 22px auto;
+        font-size: 30px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+}
+
+.formName,
+.formNumber,
+.formEmail {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    label {
+        font-size: 18px;
+        font-weight: 500;
+        word-spacing: 4px;
+        // text-transform: uppercase;
+
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 1px #9cd9f3;
+        font-family: "Ubuntu";
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    input[type="text"]:focus-visible,
+    input[type="number"]:focus-visible,
+    input[type="email"]:focus-visible {
+        border: 2px solid #378ce7;
+        outline: none;
+    }
+}
+
+.formBtns {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 48px;
+
+    .resetBtn,
+    .closeBtn,
+    .submitBtn {
+        max-width: 150px;
+        font-family: "Ubuntu";
+        padding: 8px 22px;
+        font-size: 18px;
+        white-space: nowrap;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+}
+
+.resetBtn{
+    background-color: #dff5ff;
+    border: 2px solid #0004dc;
+    color: #0004dc;
+    transition: all ease 0.2s;
+    box-shadow: 0px 0px 20px -8px rgb(103, 65, 239);
+}
+
+.resetBtn:hover {
+    background-color: #5356FF;
+    border: 2px solid #5356FF;
+    color: white;
+}
+
+.closeBtn{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    transition: all ease 0.2s;
+    box-shadow: 0px 0px 20px -8px rgb(11, 10, 14);
+
+
+}
+
+.closeBtn:hover{
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+}
+
+.submitBtn{
+    background-color: #3639ff;
+    border: 2px solid #3639ff;
+    color: white;
+    transition: all ease 0.2s;
+    box-shadow: 0px 0px 20px -8px rgb(103, 65, 239);
+}
+
+.submitBtn:hover{
+    background-color: #0004dc;
+    border: 2px solid #0004dc;
+    color: white;
+    
+}

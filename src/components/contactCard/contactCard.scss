@@ -1,0 +1,22 @@
+.card{
+    width: 748px;
+    // width: 100%;
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    align-items: center;
+    border-top: 2px solid #c7d2fe;
+    border-bottom: 2px solid #c7d2fe;
+    justify-content: center;
+}
+
+.cardImage img{
+    width: 46px;
+}
+
+.cardDetails h2{
+    margin: 0;
+    font-size: 28px;
+    font-weight: 500;
+    color: #4f46e5;
+}

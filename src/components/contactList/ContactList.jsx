@@ -2,19 +2,20 @@
 import React, { useEffect, useState } from 'react'
 import "./contactList.scss";
 import ContactCard from '../contactCard/ContactCard';
+import axios from 'axios';
 
 function ContactList() {
 
     const [datas, setDatas] = useState([]);
-    const [name, setName] = useState("");
-    const [number, setNumber] = useState("");
-    const [email, setEmail] = useState("");
 
     useEffect(() => {
-        const contactDetails = JSON.parse(localStorage.getItem('contactData')) || [];
-        setDatas(contactDetails)
+        axios.get("http://localhost:3000")
+            .then((result) => {
+                setDatas(result.data)
+            }).catch((err) => {
+                console.log(err)
+            });
     }, [])
-
     return (
         <ul className='contactListContainer'>
             {

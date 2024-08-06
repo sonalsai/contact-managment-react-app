@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import "./contactForm.scss"
+import axios from 'axios';
 
 function ContactForm({ handleDisplay, formTitle, buttonTitle }) {
 
@@ -10,26 +11,23 @@ function ContactForm({ handleDisplay, formTitle, buttonTitle }) {
     const [contactNumber, setContactNumber] = useState("");
     const [contactEmail, setContactEmail] = useState("");
 
-    let contactDetails = JSON.parse(localStorage.getItem('contactData')) || [];
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        const data = {
-            id: uuidv4(),
-            contactName: contactName,
-            contactNumber: contactNumber,
-            contactEmail: contactEmail,
-            dateCreated: Date.now(),
-        }
-        console.log("DATA === :::: ", data);
-        contactDetails.push(data)
-        localStorage.setItem("contactData", JSON.stringify(contactDetails))
+        const dateCreated = Date.now();
+
+        axios.post(`http://localhost:3000/create`, { contactName, contactNumber, contactEmail, dateCreated })
+            .then((result) => {
+                console.log(result);
+            }).catch((err) => {
+                console.log(err);
+            });
 
         setContactName("");
         setContactNumber("");
         setContactEmail("");
 
         handleDisplay(false)
+        window.location.reload()
     }
 
 
@@ -42,6 +40,7 @@ function ContactForm({ handleDisplay, formTitle, buttonTitle }) {
     const handleEmailChange = (e) => {
         setContactEmail(e.target.value);
     }
+
     return (
         <form action="post" id="contactForm">
             <h3 className='formHead'>{formTitle}</h3>

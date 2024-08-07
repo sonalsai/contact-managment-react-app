@@ -5,42 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import "./contactForm.scss"
 import axios from 'axios';
 
-function ContactForm({ handleDisplay, formTitle, buttonTitle }) {
-
-    const [contactName, setContactName] = useState("");
-    const [contactNumber, setContactNumber] = useState("");
-    const [contactEmail, setContactEmail] = useState("");
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const dateCreated = Date.now();
-
-        axios.post(`http://localhost:3000/create`, { contactName, contactNumber, contactEmail, dateCreated })
-            .then((result) => {
-                console.log(result);
-            }).catch((err) => {
-                console.log(err);
-            });
-
-        setContactName("");
-        setContactNumber("");
-        setContactEmail("");
-
-        handleDisplay(false)
-        window.location.reload()
-    }
-
-
-    const handleNameChange = (e) => {
-        setContactName(e.target.value);
-    }
-    const handleNumberChange = (e) => {
-        setContactNumber(e.target.value);
-    }
-    const handleEmailChange = (e) => {
-        setContactEmail(e.target.value);
-    }
-
+function ContactForm({ handleDisplay, formTitle, buttonTitle, contactName, contactNumber, contactEmail, handleSubmit, handleNameChange, handleNumberChange, handleEmailChange }) {
     return (
         <form action="post" id="contactForm">
             <h3 className='formHead'>{formTitle}</h3>

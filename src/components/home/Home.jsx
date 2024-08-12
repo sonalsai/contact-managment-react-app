@@ -24,6 +24,7 @@ function Home() {
         axios.post(`${hostAddress}/create`, { contactName, contactNumber, contactEmail, dateCreated })
             .then((result) => {
                 console.log(result);
+                window.location.reload()
             }).catch((err) => {
                 console.log(err);
             });
@@ -33,7 +34,6 @@ function Home() {
         setContactEmail("");
 
         handleAddForm(false)
-        window.location.reload()
     }
 
     const handleUpdate = (e) => {
@@ -42,6 +42,7 @@ function Home() {
         axios.put(`${hostAddress}/update/${contactId}`, { contactName, contactNumber, contactEmail, dateCreated })
             .then((result) => {
                 console.log(result);
+                window.location.reload()
             }).catch((err) => {
                 console.log(err);
             });
@@ -51,7 +52,6 @@ function Home() {
         setContactEmail("");
 
         handleEditForm(false)
-        window.location.reload()
     }
 
     const handleNameChange = (e) => {
@@ -80,11 +80,11 @@ function Home() {
         axios.delete(`${hostAddress}/delete/${id}`)
             .then((result) => {
                 console.log(result);
+                window.location.reload()
             }).catch((err) => {
                 console.log(err);
             });
 
-        window.location.reload()
     }
 
     return (

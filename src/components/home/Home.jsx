@@ -15,7 +15,7 @@ function Home() {
     const [contactEmail, setContactEmail] = useState("");
     const [contactId, setContactId] = useState()
 
-    const hostAddress = "https://contact-management-app-backend-e9vy.onrender.com";
+    const hostAddress = import.meta.env.VITE_API_URL;
 
     const handleSubmit = (e) => {
         e.preventDefault();

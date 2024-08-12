@@ -5,10 +5,10 @@ import "./contactList.scss";
 import ContactCard from '../contactCard/ContactCard';
 import axios from 'axios';
 
-function ContactList({handleEditForm, handleDelete}) {
+function ContactList({ handleEditForm, handleDelete }) {
 
     const [datas, setDatas] = useState([]);
-    const hostAddress = "https://contact-management-app-backend-e9vy.onrender.com";
+    const hostAddress = import.meta.env.VITE_API_URL;
 
 
     useEffect(() => {

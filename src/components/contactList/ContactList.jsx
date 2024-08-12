@@ -8,9 +8,11 @@ import axios from 'axios';
 function ContactList({handleEditForm, handleDelete}) {
 
     const [datas, setDatas] = useState([]);
+    const hostAddress = "https://contact-management-app-backend-e9vy.onrender.com";
+
 
     useEffect(() => {
-        axios.get("http://localhost:3000")
+        axios.get(`${hostAddress}`)
             .then((result) => {
                 setDatas(result.data)
             }).catch((err) => {

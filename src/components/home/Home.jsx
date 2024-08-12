@@ -15,11 +15,13 @@ function Home() {
     const [contactEmail, setContactEmail] = useState("");
     const [contactId, setContactId] = useState()
 
+    const hostAddress = "https://contact-management-app-backend-e9vy.onrender.com";
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const dateCreated = Date.now();
 
-        axios.post(`http://localhost:3000/create`, { contactName, contactNumber, contactEmail, dateCreated })
+        axios.post(`${hostAddress}/create`, { contactName, contactNumber, contactEmail, dateCreated })
             .then((result) => {
                 console.log(result);
             }).catch((err) => {
@@ -37,7 +39,7 @@ function Home() {
     const handleUpdate = (e) => {
         e.preventDefault();
         const dateCreated = Date.now();
-        axios.put(`http://localhost:3000/update/${contactId}`, { contactName, contactNumber, contactEmail, dateCreated })
+        axios.put(`${hostAddress}/update/${contactId}`, { contactName, contactNumber, contactEmail, dateCreated })
             .then((result) => {
                 console.log(result);
             }).catch((err) => {
@@ -75,7 +77,7 @@ function Home() {
     }
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3000/delete/${id}`)
+        axios.delete(`${hostAddress}/delete/${id}`)
             .then((result) => {
                 console.log(result);
             }).catch((err) => {
